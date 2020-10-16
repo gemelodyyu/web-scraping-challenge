@@ -49,3 +49,11 @@ Initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Spl
 * Append the dictionary with the image url string and the hemisphere title to a list. This list will contain one dictionary for each hemisphere.
 
 
+### Step 2 - MongoDB and Flask Application
+
+
+Use MongoDB with Flask templating to create a HTML page that displays all of the information that was scraped from the URLs above.
+
+
+[Mission to Mars](https://drive.google.com/drive/folders/13YoIEQx73OkosSL4tSw-acE3znfcDuON?usp=sharing)
+
