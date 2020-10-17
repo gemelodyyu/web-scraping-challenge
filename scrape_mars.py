@@ -1,7 +1,7 @@
 from splinter import Browser
 from bs4 import BeautifulSoup
 import pandas as pd 
-import requests
+import time
 
 
 def init_browser():
@@ -16,6 +16,7 @@ def scrape():
     # NASA Mars News
     url = "https://mars.nasa.gov/news/"
     browser.visit(url)
+    time.sleep(2)
 
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
