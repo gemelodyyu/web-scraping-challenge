@@ -16,25 +16,25 @@
 
         <!-- jumbotron for scrape button -->
         <div class="jumbotron text-center">
-            <h2>Mission to Mars</h2>
+            <h1>Mission to Mars</h1>
             <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
         </div>
 
         <!-- Mars News -->
         <div class="row">
             <div class="col-md-12">
-                <h3 class="heading">Latest Mars News</h3>
+                <h2 class="heading">Latest Mars News</h2>
                 <hr>
-                <h4 class="heading">{{mars.news_title}}</h4>
+                <h3 class="heading">{{mars.news_title}}</h3>
                 <small>{{mars.news_paragraph}}</small>
             </div>
         </div>
 
         <!-- Featured Mars image and Mars facts -->
-        <div>
+        <div class="row">
             <div class="col-md-8">
                 <div class="col-md-12">
-                    <h3 class="heading">Featured Mars Image</h3>
+                    <h2 class="heading">Featured Mars Image</h2>
                     <div class="thumbnail">
                         <img class="img-thumbnail float-left" src="{{mars.featured_image}}" alt="featured image">
                     </div>
@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-4">
                 <div class="col-md-12">
-                    <h4>Mars Facts</h4>
+                    <h3>Mars Facts</h3>
                     <hr>
                     <table class="table table-striped">
                         {{mars.facts | safe}}
@@ -51,5 +51,48 @@
             </div>
         </div>
 
+        <!-- Mars Hemispheres -->
+        <div class="container">
+            <h2 class="heading text-center">Mars Hemispheres</h2>
+            <hr>
+            <div class="card-deck">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img class="card-img-top" src="{{mars.hemisphere[0]['img_url']}}" width="100%" alt="{{mars.hemisphere[0]['title']}}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{mars.hemisphere[0]['title']}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img class="card-img-top" src="{{mars.hemisphere[1]['img_url']}}" width="100%" alt="{{mars.hemisphere[1]['title']}}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{mars.hemisphere[1]['title']}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img class="card-img-top" src="{{mars.hemisphere[2]['img_url']}}" width="100%" alt="{{mars.hemisphere[2]['title']}}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{mars.hemisphere[2]['title']}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <img class="card-img-top" src="{{mars.hemisphere[3]['img_url']}}" width="100%" alt="{{mars.hemisphere[3]['title']}}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{mars.hemisphere[3]['title']}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>    
 </body>
