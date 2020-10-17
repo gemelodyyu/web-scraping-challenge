@@ -7,9 +7,11 @@ def init_browser():
     executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
     return Browser("chrome", **executable_path, headless=False)
 
-
-def news():
+    
+def scrape():
     browser = init_browser()
+    mars = {}
+
     # NASA Mars News
     url = "https://mars.nasa.gov/news/"
     browser.visit(url)
@@ -21,12 +23,8 @@ def news():
 
     news_title = first_news.find('div', class_= 'content_title').get_text()
     news_p = first_news.find('div', class_= 'article_teaser_body').get_text()
-    browser.quit()
-    return news_title, news_p
 
 
-def image():
-    browser = init_browser()
     # JPL Mars Space Images - Featured Image
     url = "https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars"
     browser.visit(url)
@@ -43,11 +41,8 @@ def image():
     image_url = image_soup.select_one("figure.lede a img").get("src")
     
     featured_image_url = f"https://www.jpl.nasa.gov{image_url}"
-    browser.quit()
-    return featured_image_url
 
 
-def facts():
     # Mars Facts
     url = "https://space-facts.com/mars/"
 
@@ -59,10 +54,7 @@ def facts():
 
     html_table = facts_df.to_html()
     
-    return html_table
 
-def hemispheres():
-    browser = init_browser()
     # Mars Hemispheres
     url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(url)
@@ -83,23 +75,12 @@ def hemispheres():
         hemisphere_image_urls.append(hemisphere)
         
         browser.back()
-    browser.quit()
-    return hemisphere_image_urls
 
-
-def scrape():
-    browser = init_browser()
-    mars = {}
-
-    news_title, news_p = news()
-    featured_image_url = image()
-    fact_table = facts()
-    hemisphere_image_urls = hemispheres()
 
     mars["news_title"] = news_title
     mars["news_paragraph"] = news_p
     mars["featured_image"] = featured_image_url
-    mars["facts"] = fact_table
+    mars["facts"] = html_table
     mars["hemisphere"] = hemisphere_image_urls
 
     browser.quit()
