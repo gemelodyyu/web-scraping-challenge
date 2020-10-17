@@ -16,16 +16,12 @@ def news():
 
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
+ 
+    first_news = soup.select_one('ul.item_list, li.slide')
 
-    try: 
-        first_news = soup.select_one('ul.item_list, li.slide')
-
-        news_title = first_news.find('div', class_= 'content_title').get_text()
-        news_p = first_news.find('div', class_= 'article_teaser_body').get_text()
-    
-    except AttributeError: 
-        return None, None
-    
+    news_title = first_news.find('div', class_= 'content_title').get_text()
+    news_p = first_news.find('div', class_= 'article_teaser_body').get_text()
+    browser.quit()
     return news_title, news_p
 
 
@@ -47,7 +43,7 @@ def image():
     image_url = image_soup.select_one("figure.lede a img").get("src")
     
     featured_image_url = f"https://www.jpl.nasa.gov{image_url}"
-
+    browser.quit()
     return featured_image_url
 
 
@@ -87,7 +83,7 @@ def hemispheres():
         hemisphere_image_urls.append(hemisphere)
         
         browser.back()
-    
+    browser.quit()
     return hemisphere_image_urls
 
 
@@ -100,9 +96,9 @@ def scrape():
     fact_table = facts()
     hemisphere_image_urls = hemispheres()
 
-    mars["news title"] = news_title
-    mars["news paragraph"] = news_p
-    mars["featured image"] = featured_image_url
+    mars["news_title"] = news_title
+    mars["news_paragraph"] = news_p
+    mars["featured_image"] = featured_image_url
     mars["facts"] = fact_table
     mars["hemisphere"] = hemisphere_image_urls
 
