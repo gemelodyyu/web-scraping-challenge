@@ -1,6 +1,7 @@
 from splinter import Browser
 from bs4 import BeautifulSoup
 import pandas as pd 
+import requests
 
 
 def init_browser():
@@ -52,7 +53,7 @@ def scrape():
     facts_df.columns=["Description","Mars"]
     facts_df.set_index("Description", inplace = True)
 
-    html_table = facts_df.to_html()
+    html_table = facts_df.to_html(classes="table table_striped")
     
 
     # Mars Hemispheres
