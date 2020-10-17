@@ -55,7 +55,7 @@ Initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Spl
 Use MongoDB with Flask templating to create a HTML page that displays all of the information that was scraped from the URLs above.
 
 
-#### Here is what the final application looks like: 
+#### Here is what the application looks like (2020/10/17): 
 
-<img width="438" alt="final application" src="https://user-images.githubusercontent.com/55970064/96351930-b565b080-1084-11eb-9c59-e40b67ea3f94.png">
+<img width="525" alt="final screenshot" src="https://user-images.githubusercontent.com/55970064/96352289-c6fc8780-1087-11eb-8552-7fb93e44fc3b.png">
 
